@@ -7,6 +7,8 @@ pygtk.require('2.0')
 import mateapplet
 import gtk
 
+import subprocess
+
 def factory(applet, iid):
 	button = gtk.Button()
 	button.set_relief(gtk.RELIEF_NONE)
@@ -17,6 +19,8 @@ def factory(applet, iid):
 	return True
 
 def showMenu(widget, event, applet):
+	if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
+		subprocess.call("mate-calculator")
 	if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
 		widget.emit_stop_by_name("button_press_event")
 		create_menu(applet)
@@ -30,7 +34,7 @@ def create_menu(applet):
 	applet.setup_menu(propxml, verbs, None)
 
 def showAboutDialog(*arguments, **keywords):
-	pass
+	subprocess.call("mate-about")
 
 if len(sys.argv) == 2:
 	if sys.argv[1] == "run-in-window":
