@@ -51,10 +51,11 @@ def on_button_clicked(button):
 def showAboutDialog(*arguments, **keywords):
 	subprocess.call("mate-about")
 
+# If applet is run directly from the command line with the -d debug option we create a window to host it
 if len(sys.argv) == 2:
-	if sys.argv[1] == "run-in-window":
+	if sys.argv[1] == "-d":
 		mainWindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
-		mainWindow.set_title("Ubuntu System Panel")
+		mainWindow.set_title("System Panel")
 		mainWindow.connect("destroy", gtk.main_quit)
 		applet = mateapplet.Applet()
 		factory(applet, None)
