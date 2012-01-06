@@ -20,7 +20,7 @@ def factory(applet, iid):
 
 def showMenu(widget, event, applet):
 	if event.type == gtk.gdk.BUTTON_PRESS and event.button == 1:
-		subprocess.call("mate-calculator")
+		showMainDialog()
 	if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
 		widget.emit_stop_by_name("button_press_event")
 		create_menu(applet)
@@ -32,6 +32,21 @@ def create_menu(applet):
 			</popup>"""
 	verbs = [("About", showAboutDialog)]
 	applet.setup_menu(propxml, verbs, None)
+
+def showMainDialog():
+	window = gtk.Window()
+	window.connect("delete-event", gtk.main_quit)
+	window.set_border_width(10)
+
+	button = gtk.Button("Hello World")
+	button.connect("clicked", on_button_clicked)
+	window.add(button)
+
+	window.show_all()
+	gtk.main()
+
+def on_button_clicked(button):
+	subprocess.call("mate-calculator")
 
 def showAboutDialog(*arguments, **keywords):
 	subprocess.call("mate-about")
