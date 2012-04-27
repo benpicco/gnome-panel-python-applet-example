@@ -2,8 +2,6 @@
 
 import pygtk
 import sys
-pygtk.require('2.0')
-
 import gnomeapplet
 import gtk
 
