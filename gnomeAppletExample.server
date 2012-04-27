@@ -1,0 +1,24 @@
+<oaf_info>
+
+	<oaf_server iid="OAFIID:Gnome_Panel_Example_Factory" type="exe" location="/usr/local/bin/gnomeAppletExample.py">
+		<oaf_attribute name="repo_ids" type="stringv">
+			<item value="IDL:Bonobo/GenericFactory:1.0"/>
+			<item value="IDL:Bonobo/Unknown:1.0"/>
+		</oaf_attribute>
+		<oaf_attribute name="name" type="string" value="Gnome Applet Example"/>
+		<oaf_attribute name="description" type="string" value="Simple gnome applet example"/>
+	</oaf_server>
+
+	<oaf_server iid="OAFIID:Gnome_Panel_Example" type="factory" location="OAFIID:Gnome_Panel_Example_Factory">
+		<oaf_attribute name="repo_ids" type="stringv">
+			<item value="IDL:GNOME/Vertigo/GnomePanelAppletShell:1.0"/>
+			<item value="IDL:Bonobo/Control:1.0"/>
+			<item value="IDL:Bonobo/Unknown:1.0"/>
+		</oaf_attribute>
+		<oaf_attribute name="name" type="string" value="Example"/>
+		<oaf_attribute name="description" type="string" value="Simple gnome applet example"/>
+		<oaf_attribute name="panel:category" type="string" value="Utility"/>
+		<oaf_attribute name="panel:icon" type="string" value="computer.png"/>
+	</oaf_server>
+
+</oaf_info>

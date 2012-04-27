@@ -1,1 +1,1 @@
-A simple applet that uses mate-python-desktop to display a button on mate-panel.
+A simple applet that uses gnome-python-desktop to display a button on gnome-panel.

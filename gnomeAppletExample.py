@@ -4,7 +4,7 @@ import pygtk
 import sys
 pygtk.require('2.0')
 
-import mateapplet
+import gnomeapplet
 import gtk
 
 import subprocess
@@ -46,10 +46,10 @@ def showMainDialog():
 	gtk.main()
 
 def on_button_clicked(button):
-	subprocess.call("mate-calculator")
+	subprocess.call("gnome-calculator")
 
 def showAboutDialog(*arguments, **keywords):
-	subprocess.call("mate-about")
+	subprocess.call("gnome-about")
 
 # If applet is run directly from the command line with the -d debug option we create a window to host it
 if len(sys.argv) == 2:
@@ -57,7 +57,7 @@ if len(sys.argv) == 2:
 		mainWindow = gtk.Window(gtk.WINDOW_TOPLEVEL)
 		mainWindow.set_title("System Panel")
 		mainWindow.connect("destroy", gtk.main_quit)
-		applet = mateapplet.Applet()
+		applet = gnomeapplet.Applet()
 		factory(applet, None)
 		applet.reparent(mainWindow)
 		mainWindow.show_all()
@@ -66,4 +66,4 @@ if len(sys.argv) == 2:
 
 if __name__ == '__main__':
 	print "Starting factory"
-	mateapplet.matecomponent_factory("OAFIID:Mate_Panel_Example_Factory", mateapplet.Applet.__gtype__, "Simple mate applet example", "1.0", factory)
+	gnomeapplet.bonobo_factory("OAFIID:Gnome_Panel_Example_Factory", gnomeapplet.Applet.__gtype__, "Simple gnome applet example", "1.0", factory)

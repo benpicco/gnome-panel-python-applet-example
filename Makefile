@@ -1,7 +1,7 @@
 install:
-	cp mateAppletExample.py	/usr/local/bin/
-	cp mateAppletExample.server /usr/lib/matecomponent/servers/
+	cp gnomeAppletExample.py	/usr/local/bin/
+	cp gnomeAppletExample.server /usr/lib/bonobo/servers/
 
 uninstall:
-	rm /usr/local/bin/mateAppletExample.py
-	rm /usr/lib/matecomponent/servers/mateAppletExample.server
+	rm /usr/local/bin/gnomeAppletExample.py
+	rm /usr/lib/bonobo/servers/gnomeAppletExample.server
